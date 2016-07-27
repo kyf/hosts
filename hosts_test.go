@@ -21,6 +21,8 @@ func TestLoad(t *testing.T) {
 		host.Disable()
 	}
 
+	h.Set("203.154.65.25", "www.mylocal.com", "zhe ge shi ceshi xie de host", true)
+
 	err = h.Save()
 	if err != nil {
 		t.Fatal(err)

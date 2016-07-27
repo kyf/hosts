@@ -57,7 +57,7 @@ func (h *Hosts) Set(ip, domain, comment string, enable bool) (host *Host) {
 		}
 	}
 
-	host = &Host{Ip: ip, Domains: []string{domain}, Enabled: enable}
+	host = &Host{Ip: ip, Domains: []string{domain}, Enabled: enable, Comment: comment}
 	h.Lock()
 	defer h.Unlock()
 	h.Items = append(h.Items, host)
@@ -101,7 +101,7 @@ func (h *Hosts) Save() error {
 	defer fp.Close()
 	for _, item := range h.Items {
 		line := encode(*item)
-		_, err = fp.Write([]byte(line + "\n"))
+		_, err = fp.Write([]byte(line + "\r\n"))
 		if err != nil {
 			return err
 		}
