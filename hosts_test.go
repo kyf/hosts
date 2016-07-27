@@ -1,6 +1,7 @@
 package hosts
 
 import (
+	"fmt"
 	"log"
 	"testing"
 )
@@ -28,5 +29,5 @@ func TestLoad(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	log.Print(CMD_WRAP)
+	fmt.Print(CMD_WRAP)
 }
