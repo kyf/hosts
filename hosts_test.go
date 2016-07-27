@@ -28,4 +28,5 @@ func TestLoad(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	log.Print(CMD_WRAP)
 }
