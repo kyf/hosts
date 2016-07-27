@@ -101,7 +101,7 @@ func (h *Hosts) Save() error {
 	defer fp.Close()
 	for _, item := range h.Items {
 		line := encode(*item)
-		_, err = fp.Write([]byte(line + "\r\n"))
+		_, err = fp.Write([]byte(line + CMD_WRAP))
 		if err != nil {
 			return err
 		}
