@@ -51,7 +51,9 @@ func (h *Hosts) Set(ip, domain, comment string, enable bool) (host *Host) {
 	_hosts := h.GetByIp(ip)
 	for _, it := range _hosts {
 		if it.Enabled == enable {
-			it.Domains = append(it.Domains, domain)
+			if !StringSliceContains(it.Domains, domain) {
+				it.Domains = append(it.Domains, domain)
+			}
 			host = it
 			return
 		}
